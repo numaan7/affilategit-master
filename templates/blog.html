@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>{{blog.blog_tab_title}}</title>
+{% endblock title %}
+{% block metablock %}
+   <meta name="description" content="{{blog.blog_description}}">
+   <meta name="keywords" content="{{blog.blog_keywords}}">
+   <meta name="author" content="">
+{% endblock metablock %}
+
+{% block body %}
+<div class="layout_padding" style="padding-bottom:0px">
+   <div class="container">
+      {% comment %} {% for blog in allblogs %} {% endcomment %}
+     <div class="" style="margin-top:25px; margin-bottom:25px">
+        <div class="row">
+            <div class="col-md-12">
+               <div><img src={{blog.image.url}} class="image_3"></div>
+            </div>
+            <div class="col-md-12">
+               <div class="about_taital_main" style="text-align:justify">
+                  <h2 class="about_text" style="font-size:26px">{{blog.title}}</h2>
+                  <p class="about_text" style="font-size:16px">{{blog.description | safe}}<h3></h3></p>
+                        
+                  {% comment %} <div class="readmore_bt"><a href="#">Read More</a></div> {% endcomment %}
+               </div>
+            </div>
+           
+        </div>
+     </div>
+     {% comment %} {% endfor %} {% endcomment %}
+  </div>
+ <!-- contact section end -->
+ <!-- Javascript files-->
+ {% comment %} <script src="js/jquery.min.js"></script>
+ <script src="js/popper.min.js"></script>
+ <script src="js/bootstrap.bundle.min.js"></script>
+ <script src="js/jquery-3.0.0.min.js"></script>
+ <script src="js/plugin.js"></script>
+ <!-- sidebar -->
+ <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+ <script src="js/custom.js"></script>
+ <!-- javascript --> 
+ <script src="js/owl.carousel.js"></script> {% endcomment %}
+ <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>  
+ <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+ <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "100%";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+ </script>
+{% endblock body %}

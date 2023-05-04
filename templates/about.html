@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>About VIniRak</title>
+{% endblock title %}
+{% block metablock %}
+   <meta name="description" content="We are a team of passionate digital marketing experts who are dedicated to helping businesses achieve their goals through effective online marketing strategies.">
+   <meta name="keywords" content="Digital Marketing Solutions Provider in Bareilly, Digital Marketing Services Provider Bareilly">
+   <meta name="author" content="">
+{% endblock metablock %}
+
+{% block body %}
+{% load static %}
+ <!-- header section end -->
+ <!-- about section start -->
+ <div class="about_section layout_padding">
+    <div class="container">
+      <div class="about_section_main">
+         <div class="row">
+            <div class="col-md-6">
+               <div><img src={% static "images/Vinirak.jpg" %} class="image_3"></div>
+            </div>
+            <div class="col-md-6">
+               <div class="about_taital_main">
+                  <h1 class="about_taital">About Vinirak</h1>
+                  <p class="about_text">We are a team of passionate digital marketing experts who are dedicated to helping businesses achieve their goals through effective online marketing strategies. Our company was founded with the vision of making digital marketing accessible and affordable for businesses of all sizes.
+                  <br><br>
+                  Our team has years of experience in the industry, and we pride ourselves on staying up-to-date with the latest trends and best practices. We specialise in a wide range of digital marketing services, including search engine optimization, pay-per-click advertising, social media marketing, email marketing, influencer marketing, affiliate marketing and more.
+                  <br><br>
+                  At our core, we believe in transparency, honesty, and communication. We work closely with our clients to understand their unique needs and goals, and we develop customised strategies to help them achieve success. We are passionate about what we do, and we are committed to delivering results that exceed our clients' expectations.
+                  <br><br>
+                  We know that digital marketing can be complex and overwhelming, which is why we strive to make it as simple and straightforward as possible. Our team is always available to answer questions, provide guidance, and offer support every step of the way.
+                  <br><br>
+                  Thank you for considering our company for your digital marketing needs. We look forward to working with you and helping your business thrive online.
+                  </p>
+                  {% comment %} <div class="readmore_bt"><a href="#">Read More</a></div> {% endcomment %}
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+ </div>
+ {% comment %} <script src="js/jquery.min.js"></script>
+ <script src="js/popper.min.js"></script>
+ <script src="js/bootstrap.bundle.min.js"></script>
+ <script src="js/jquery-3.0.0.min.js"></script>
+ <script src="js/plugin.js"></script>
+ <!-- sidebar --> {% endcomment %}
+ {% comment %} <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+ <script src="js/custom.js"></script> {% endcomment %}
+ <!-- javascript --> 
+ {% comment %} <script src="js/owl.carousel.js"></script> {% endcomment %}
+ <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>  
+ <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+ <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "100%";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+ </script>
+{% endblock body %}

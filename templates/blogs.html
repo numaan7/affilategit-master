@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Vinirak | Blogs
+</title>
+{% endblock title %}
+{% block body %}
+<div id="service" class="service" style="margin-top:0px;">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="titlepage" style="text-align:justify">
+               <h2>Blogs </h2>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="container margin-r-l">
+      <div class="row">
+         {% for blog in allblogs %}
+         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 thumb" style="align-items: center;display: flex; justify-content: center;">
+            <div class="service-box" style="display: flex;justify-content: center;align-items: center;">
+            
+               <figure>
+                     <a class="service-title" href="/blogs/{{blog.blog_url}}" class="fancybox" rel="ligthbox">
+                     <img  src={{blog.image.url}} class="zoom img-fluid "  alt="">
+                     </a>
+                     <span class="hoverle">
+                        <a style="v" href="/blogs/{{blog.blog_url}}" class="fancybox service-title-a" rel="ligthbox">{{blog.title}}</a>
+                     </span> 
+               </figure>
+               
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+</div>
+<script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>  
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+<script>
+   {% comment %} window.onload = function(e) {
+      var links = document.getElementsByClassName("blog-title"); 
+      for (let i = 0; i< links.length; i++) {
+         var linkString = (links[i].href)
+         var newLink = linkString.split('%20').join('-')
+         links[i].href = newLink
+      }
+   };
+         function openNav() {
+           document.getElementById("mySidenav").style.width = "100%";
+         }
+         
+         function closeNav() {
+           document.getElementById("mySidenav").style.width = "0";
+         } {% endcomment %}
+      </script>
+{% endblock body %}

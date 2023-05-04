@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>ViniRak | Digital Marketing Solutions Provider</title>
+{% endblock title %}
+
+{% block metablock %}
+   <meta name="description" content="ViniRak is a full service Digital Marketing Services Provider Company. We offer online solutions for all your digital channels. Get a free quote Today.">
+
+   <meta name="keywords" content="Digital Marketing Solutions, Digital Marketing Services, Online Marketing, Internet Marketing Services">
+   <meta name="author" content="">
+{% endblock metablock %}
+{% block body %}
+<body class="main-layout">
+   <!-- loader  -->
+   <div class="loader_bg">
+      <div class="loader"><img src="{% static "images/loading.gif" %}" alt="#" /></div>
+   </div>
+   <!-- end loader --> 
+   <!-- header -->
+
+   <section class="slider_section">
+      <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel">
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <img class="first-slfide" src="{% static "images/serv.png" %}" alt="First slide">
+               <div class="container">
+                  <div class="carousel-caption relative">
+                     {% comment %} <h1 style="color:black">About Us</h1>
+                     <p style="color:black">We are a team of passionate digital marketing experts who are dedicated to helping businesses achieve their goals through effective online marketing strategies. Our company was founded with the vision of making digital marketing accessible and affordable for businesses of all sizes... </p> {% endcomment %}
+                     {% comment %} <a  href="/about">Read More</a> {% endcomment %}
+                  </div>
+               </div>
+            </div>
+         </div>
+         <a class="bottom_arrow_scroll" href="#about"><img src="{% static "icon/errow.png" %}" /></a>
+      </div>
+   </section>
+<!-- about  -->
+   <div id="about" class="about">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="titlepage">
+                  <h2>About Us</h2>
+                  {% comment %} <span>We are a team of passionate digital marketing experts who are dedicated to helping businesses achieve their goals through effective online marketing strategies. Our company was founded with the vision of making digital marketing accessible and affordable for businesses of all sizes.
+                  </span> {% endcomment %}
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="container-fluid">
+         <div class="row flexcss">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12" style="display: flex;
+            justify-content: center;">
+               <div class="about-box">
+                  {% comment %} <h3>About US. {% endcomment %}
+                  </h3>
+                  <p>We are a team of passionate digital marketing experts who are dedicated to helping businesses achieve their goals through effective online marketing strategies. Our company was founded with the vision of making digital marketing accessible and affordable for businesses of all sizes.</p>
+                  
+               </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="about-img">
+
+                  <figure><img src="{% static "images/AboutUsvin.jpg" %}" alt="img"/></figure>
+                  
+               </div>
+              
+            </div>
+         </div>
+         <a href="/about">read more</a>
+      </div>
+   </div>
+   <!-- end abouts -->
+<!-- service --> 
+   
+   <!-- end service -->
+   <!-- our blog -->
+   <div id="blog" class="blog">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="titlepage">
+                  <h2>Our Blog</h2>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            {% for blog in allblogs %}
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+               <div class="blog-box">
+                  <figure><a href="blogs/{{blog.blog_url}}"><img style="margin-bottom:10px; max-height:300px" src={{blog.image.url}} alt="{{blog.image.alt}}"/></a>
+                     {% comment %} <span>10 August 2019</span> {% endcomment %}
+                  </figure>
+                  <h3>{{blog.title}}</h3>
+                  <p>{{blog.description |safe | slice:":400"}}</p>
+                  <a style="color:green;" href="blogs/{{blog.blog_url}}" title="">More...</a>
+               </div>
+            </div>
+            {% endfor %}
+         </div>
+      </div>
+   </div>
+   <!-- end our blog -->
+   <!-- Testimonial -->
+
+   <!-- end Testimonial --> 
+   
+{% endblock body %}

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Vinirak | Contact
+</title>
+{% endblock title %}
+{% load static %}
+{% block body %}
+<div id="contact" class="contact">
+   <div class="container">
+      <div class="row">
+         <div id="contact" class="contact">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="titlepage">
+                        <h3>Contact Us</h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 offset-md-3">
+                     <div class="contact" style="padding: 0px 0px 0px 0px;">
+                     <div id=csrf-token>{% csrf_token %}</div>
+                        <!-- <form> -->
+                           <div class="row">
+                              <div class="col-sm-12">
+                                 <input class="contactus"  id="name" placeholder="Name" type="text" name="Name">
+                              </div>
+                              <div class="col-sm-12">
+                                 <input class="contactus" id="phone" placeholder="Phone" type="text" name="Email">
+                              </div>
+                              <div class="col-sm-12">
+                                 <input class="contactus" id="email" placeholder="Email" type="text" name="Email">
+                              </div>
+                              <div class="col-sm-12">
+                                 <textarea class="textarea" id="message" placeholder="Message" type="text" name="Message"></textarea>
+                              </div>
+                              <div class="col-sm-12">
+                                 <button onclick="submitform()" class="send">Send</button>
+                              </div>
+                              <div style="margin-top:10px; margin-left:auto;margin-right:auto;; display:none" id="alert" class="" role="alert">
+                              </div>
+                           </div>
+                        <!-- </form> -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<script>
+   function submitform(){
+   var name = document.getElementById("name").value
+   var phone = document.getElementById("phone").value
+   var email = document.getElementById("email").value
+   var message = document.getElementById("message").value
+
+   $.ajax({
+      
+      type: "POST",
+      url: "/submitform/",
+      data: {
+        "name": name.toString(),
+        "phone": phone.toString(),
+        "email": email.toString(),
+        "message": message.toString(),
+        csrfmiddlewaretoken: '{{ csrf_token }}'
+      //   "csrf"
+      },
+      success: function(data){
+         console.log("Saskajsioaholisj")
+         console.log(data)
+         if (data==='success'){
+
+            document.getElementById("name").value = ""
+            document.getElementById("email").value = ""
+            document.getElementById("phone").value = ""
+            document.getElementById("message").value = ""
+            document.getElementById("alert").style.display = "block"
+            document.getElementById("alert").innerHTML = "Thank you for your message (:"
+            document.getElementById("alert").classList.add("alert");
+            document.getElementById("alert").classList.add("alert-success");
+         }
+         else{
+            document.getElementById("alert").innerHTML = "Please try again"
+            document.getElementById("alert").style.display = "block"
+            document.getElementById("alert").classList.add("alert-danger");
+            document.getElementById("alert").classList.add("alert");
+         }
+         setTimeout(function(){
+            $('#alert').hide()
+        }, 3000)
+      }
+    })
+   }
+</script>
+{% endblock body %}

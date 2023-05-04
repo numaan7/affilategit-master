@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Digital Marketing | Affiliate Marketing | Influencer Marketing 
+</title>
+{% endblock title %}
+{% block metablock %}
+   <meta name="description" content="We are a leading provider of Digital Marketing, Affiliate Marketing and Influencer Marketing. Our team of experts has years of experience in promoting your business.">
+   <meta name="keywords" content="Digital Marketing Services, Affiliate Marketing Services, Influencer Marketing Services, Social Media MArketing Services">
+   <meta name="author" content="">
+{% endblock metablock %}
+
+{% block body %}
+<div id="service" class="service" style="margin-top:0px;">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="titlepage" style="text-align:justify">
+               <h2>Services </h2>
+               <span>We are a leading provider of Digital Marketing, Affiliate Marketing and Influencer Marketing. Our team of experts has years of experience in promoting your business through different platforms which are suitable for your business and is committed to delivering exceptional results for our clients.<br><br>
+
+                  Our services are designed to help businesses showcase their products, services and presence online. Whether you are looking to keep yourself on the top of Search Engine Pages or among the top rated social media pages, we have the knowledge and expertise to help you achieve your objectives.<br><br>
+                  At our core, we believe in loyalty, honesty and trust. We are passionate about helping our clients succeed, and we are committed to delivering exceptional service and results. We work closely with our clients to understand their unique needs and goals, and we develop customised strategies to help them achieve success.
+                  <br><br>
+                  If you are looking to enhance your business digitally, we invite you to explore our services further and learn how we can help you achieve your objectives. Contact us today to schedule a consultation and see how we can help you grow your business.
+                  
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="container margin-r-l">
+      <div class="row">
+         {% for service in services %}
+         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 thumb" style="align-items: center;display: flex; justify-content: center;">
+            <div class="service-box" style="display: flex;justify-content: center;align-items: center;">
+            
+               <figure>
+                     <a class="service-title" href="/services/{{service.service_url}}" class="fancybox" rel="ligthbox">
+                     <img  src={{service.image.url}} class="zoom img-fluid "  alt="">
+                     </a>
+                     <span class="hoverle">
+                        <a style="v" href="/services/{{service.service_url}}" class="fancybox service-title-a" rel="ligthbox">{{service.title}}</a>
+                     </span> 
+               </figure>
+               
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+</div>
+<script>
+   window.onload = function(e) {
+      var links = document.getElementsByClassName("service-title"); 
+      for (let i = 0; i< links.length; i++) {
+         var linkString = (links[i].href)
+         var newLink = linkString.split('%20').join('-')
+         links[i].href = newLink
+         console.log(links[i].href)
+         
+      }
+   };
+</script>
+{% endblock body %}
